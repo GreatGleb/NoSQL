@@ -1,0 +1,15 @@
+﻿1)
+db.Customers.find({Country:"China"},{"First Name", "Last Name"}).sort({District:-1})
+
+2)
+SELECT First Name, Last Name
+FROM customer
+WHERE Country = "China"
+ORDER BY First Name DESC
+
+3)
+db.customers.find( {"First Name", "Last Name", "Number of watched movies"})
+4)
+db.customers.find( {"Rentals.filmId" : {$in : db.films.find({"Category" : "Classics"}).map((it)=> { 
+      return it._id;
+})}})
